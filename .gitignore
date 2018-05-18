@@ -1,0 +1,14 @@
+node_modules/
+npm-debug.log
+
+# Local development environment variables
+.env
+
+# WebStorm project directory
+.idea/
+
+#jest cache
+jest_0/
+
+#vagrant
+.vagrant/

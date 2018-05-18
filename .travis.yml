@@ -1,0 +1,27 @@
+language: node_js
+env:
+  matrix:
+  - NODE_ENV=test ENVIRONMENT=Dev AWS_ACCESS_KEY_ID=[]
+  global:
+    
+services:
+- docker
+script:
+- npm run lint
+- npm test
+deploy:
+- skip_cleanup: true
+  provider: script
+  script: scripts/build-and-deploy.js
+  on:
+    branch: develop
+- skip_cleanup: true
+  provider: script
+  script: scripts/build.js
+  on:
+    branch: staging
+- skip_cleanup: true
+  provider: script
+  script: scripts/build.js
+  on:
+    branch: master
